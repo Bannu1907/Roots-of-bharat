@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore | Roots of Bharat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="page-header">
+  <a class="brand" href="index.html" aria-label="Roots of Bharat home">
+    <span class="brand-mark">RB</span>
+    <span>
+      <strong>Roots of Bharat</strong>
+      <small>Cultural atlas of India</small>
+    </span>
+  </a>
+      <nav class="front-menu" aria-label="Primary navigation">
+        <a href="explore.html">Explore</a>
+        <a href="regions.html">Regions</a>
+        <a href="plan.html">Plan a Trail</a>
+        <a href="about.html">About</a>
+      </nav>
+  <div class="auth-actions">
+    <a class="signin-button" href="signin.html">Sign in</a>
+    <a class="signup-button" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main>
+  <section id="explore" class="workspace page-main" aria-label="Explore Indian heritage">
+    <div class="toolbar">
+      <label class="search-box">
+        <span>Search</span>
+        <input id="searchInput" type="search" placeholder="Search food, temple, dance, place..." autocomplete="off">
+      </label>
+
+      <label class="select-box">
+        <span>Theme</span>
+        <select id="themeFilter">
+          <option value="all">All heritage</option>
+          <option value="history">History</option>
+          <option value="food">Food</option>
+          <option value="dance">Dance and music</option>
+          <option value="temples">Temples</option>
+          <option value="places">Famous places</option>
+          <option value="festivals">Festivals</option>
+          <option value="traditions">Traditions</option>
+          <option value="crafts">Crafts</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="explorer-grid">
+      <section class="map-panel" aria-labelledby="map-title">
+        <div class="section-heading">
+          <p class="eyebrow">Choose a destination</p>
+          <h1 id="map-title">Heritage Map</h1>
+        </div>
+
+        <div class="india-map" role="list" aria-label="Region choices">
+          <img class="india-map-svg" src="./assets/india-map.svg" alt="Map of India with states and union territories">
+          <button class="map-pin north" type="button" data-region="rajasthan" role="listitem"><span>Rajasthan</span></button>
+          <button class="map-pin west" type="button" data-region="gujarat" role="listitem"><span>Gujarat</span></button>
+          <button class="map-pin central" type="button" data-region="madhya-pradesh" role="listitem"><span>MP</span></button>
+          <button class="map-pin east" type="button" data-region="west-bengal" role="listitem"><span>Bengal</span></button>
+          <button class="map-pin south" type="button" data-region="tamil-nadu" role="listitem"><span>Tamil Nadu</span></button>
+          <button class="map-pin southwest" type="button" data-region="kerala" role="listitem"><span>Kerala</span></button>
+        </div>
+        <p class="map-credit">Map: @svg-maps/india, CC-BY-4.0, based on MapSVG.</p>
+      </section>
+
+      <section class="detail-panel" aria-live="polite">
+        <div class="detail-top">
+          <div>
+            <p id="selectedType" class="eyebrow">State spotlight</p>
+            <h2 id="regionName">Rajasthan</h2>
+            <p id="regionIntro"></p>
+          </div>
+          <button id="favoriteButton" class="icon-action" type="button" aria-pressed="false">
+            <span class="star" aria-hidden="true">+</span>
+            <span>Save</span>
+          </button>
+        </div>
+
+        <div id="tags" class="tag-row" aria-label="Highlights"></div>
+
+        <div class="category-launcher" aria-label="Open heritage dashboards">
+          <button type="button" class="category-tile" data-dashboard-tab="history"><span class="tile-icon">H</span><span>History</span></button>
+          <button type="button" class="category-tile" data-dashboard-tab="food"><span class="tile-icon">F</span><span>Food</span></button>
+          <button type="button" class="category-tile" data-dashboard-tab="arts"><span class="tile-icon">D</span><span>Dance and Arts</span></button>
+          <button type="button" class="category-tile" data-dashboard-tab="temples"><span class="tile-icon">T</span><span>Temples</span></button>
+          <button type="button" class="category-tile" data-dashboard-tab="festivals"><span class="tile-icon">E</span><span>Festivals</span></button>
+          <button type="button" class="category-tile" data-dashboard-tab="traditions"><span class="tile-icon">R</span><span>Traditions</span></button>
+          <button type="button" class="category-tile" data-dashboard-tab="places"><span class="tile-icon">P</span><span>Famous Places</span></button>
+        </div>
+
+        <div id="tabContent" class="tab-content"></div>
+      </section>
+    </div>
+  </section>
+
+  <section id="dashboard" class="dashboard-view" hidden aria-live="polite">
+    <div class="dashboard-hero">
+      <button id="backToExplore" class="back-action" type="button">Back to explore</button>
+      <p id="dashboardType" class="eyebrow">Dashboard</p>
+      <h2 id="dashboardTitle">Rajasthan History Dashboard</h2>
+      <p id="dashboardIntro"></p>
+    </div>
+
+    <div class="dashboard-grid">
+      <section class="dashboard-panel large-panel" aria-labelledby="dashboardHighlightsTitle">
+        <div class="panel-heading">
+          <span id="dashboardIcon" class="dashboard-icon">H</span>
+          <div>
+            <p class="eyebrow">Deep dive</p>
+            <h3 id="dashboardHighlightsTitle">Highlights</h3>
+          </div>
+        </div>
+        <div id="dashboardItems" class="dashboard-items"></div>
+      </section>
+
+      <aside class="dashboard-panel" aria-labelledby="dashboardSummaryTitle">
+        <p class="eyebrow">Snapshot</p>
+        <h3 id="dashboardSummaryTitle">What to notice</h3>
+        <dl id="dashboardStats" class="dashboard-stats"></dl>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

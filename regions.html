@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regions | Roots of Bharat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="page-header">
+  <a class="brand" href="index.html" aria-label="Roots of Bharat home">
+    <span class="brand-mark">RB</span>
+    <span>
+      <strong>Roots of Bharat</strong>
+      <small>Cultural atlas of India</small>
+    </span>
+  </a>
+  <nav class="front-menu" aria-label="Primary navigation">
+    <a href="explore.html">Explore</a>
+    <a href="regions.html">Regions</a>
+    <a href="plan.html">Plan a Trail</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="auth-actions">
+    <a class="signin-button" href="signin.html">Sign in</a>
+    <a class="signup-button" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main>
+  <section id="regions" class="region-band page-main" aria-labelledby="regions-title">
+    <div class="section-heading">
+      <p class="eyebrow">Featured places</p>
+      <h1 id="regions-title">Start with six cultural windows</h1>
+    </div>
+    <div class="toolbar compact-toolbar">
+      <label class="search-box">
+        <span>Search regions</span>
+        <input id="searchInput" type="search" placeholder="Search food, temple, dance, place..." autocomplete="off">
+      </label>
+      <label class="select-box">
+        <span>Theme</span>
+        <select id="themeFilter">
+          <option value="all">All heritage</option>
+          <option value="history">History</option>
+          <option value="food">Food</option>
+          <option value="dance">Dance and music</option>
+          <option value="temples">Temples</option>
+          <option value="places">Famous places</option>
+          <option value="festivals">Festivals</option>
+          <option value="traditions">Traditions</option>
+          <option value="crafts">Crafts</option>
+        </select>
+      </label>
+    </div>
+    <div id="regionCards" class="region-cards"></div>
+  </section>
+
+  <section id="dashboard" class="dashboard-view" hidden aria-live="polite">
+    <div class="dashboard-hero">
+      <button id="backToExplore" class="back-action" type="button">Back to regions</button>
+      <p id="dashboardType" class="eyebrow">Dashboard</p>
+      <h2 id="dashboardTitle">Region Dashboard</h2>
+      <p id="dashboardIntro"></p>
+    </div>
+    <div class="dashboard-grid">
+      <section class="dashboard-panel large-panel" aria-labelledby="dashboardHighlightsTitle">
+        <div class="panel-heading">
+          <span id="dashboardIcon" class="dashboard-icon">H</span>
+          <div>
+            <p class="eyebrow">Deep dive</p>
+            <h3 id="dashboardHighlightsTitle">Highlights</h3>
+          </div>
+        </div>
+        <div id="dashboardItems" class="dashboard-items"></div>
+      </section>
+      <aside class="dashboard-panel" aria-labelledby="dashboardSummaryTitle">
+        <p class="eyebrow">Snapshot</p>
+        <h3 id="dashboardSummaryTitle">What to notice</h3>
+        <dl id="dashboardStats" class="dashboard-stats"></dl>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

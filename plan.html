@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan a Trail | Roots of Bharat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="page-header">
+  <a class="brand" href="index.html" aria-label="Roots of Bharat home">
+    <span class="brand-mark">RB</span>
+    <span>
+      <strong>Roots of Bharat</strong>
+      <small>Cultural atlas of India</small>
+    </span>
+  </a>
+  <nav class="front-menu" aria-label="Primary navigation">
+    <a href="explore.html">Explore</a>
+    <a href="regions.html">Regions</a>
+    <a href="plan.html">Plan a Trail</a>
+    <a href="about.html">About</a>
+  </nav>
+  <div class="auth-actions">
+    <a class="signin-button" href="signin.html">Sign in</a>
+    <a class="signup-button" href="signup.html">Sign up</a>
+  </div>
+</header>
+
+<main class="page-main">
+  <section id="plan" class="trail-builder" aria-labelledby="trail-title">
+    <div>
+      <p class="eyebrow">Trip idea</p>
+      <h1 id="trail-title">Build a Heritage Trail</h1>
+      <p>Select an interest and the app suggests a focused route across the regions in this first version.</p>
+    </div>
+    <div class="trail-controls">
+      <button type="button" class="trail-choice active" data-trail="sacred">Sacred sites</button>
+      <button type="button" class="trail-choice" data-trail="food">Food stories</button>
+      <button type="button" class="trail-choice" data-trail="arts">Dance and crafts</button>
+    </div>
+    <ol id="trailList" class="trail-list"></ol>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
