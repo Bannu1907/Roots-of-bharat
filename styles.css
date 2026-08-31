@@ -961,6 +961,7 @@ select {
 }
 
 .form-submit {
+  border: 0;
   min-height: 48px;
   display: inline-flex;
   align-items: center;
@@ -969,11 +970,28 @@ select {
   background: var(--indigo);
   color: #fffaf2;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .auth-switch a {
   color: var(--indigo);
   font-weight: 900;
+}
+
+.auth-message {
+  min-height: 22px;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.auth-message.success {
+  color: var(--green);
+}
+
+.auth-message.error {
+  color: var(--rose);
 }
 
 @media (max-width: 1020px) {

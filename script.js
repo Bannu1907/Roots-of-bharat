@@ -497,6 +497,75 @@ function changeFeatureRegion(regionId) {
   window.location.href = `${featurePages[featureKey]}?region=${encodeURIComponent(regionId)}`;
 }
 
+function setAuthMessage(message, type = "") {
+  const authMessage = document.querySelector("#authMessage");
+  if (!authMessage) return;
+  authMessage.textContent = message;
+  authMessage.className = `auth-message ${type}`.trim();
+}
+
+async function postAuth(path, payload) {
+  const response = await fetch(path, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+  const data = await response.json();
+  if (!response.ok || !data.ok) {
+    throw new Error(data.message || "Something went wrong");
+  }
+  return data;
+}
+
+function initAuthForms() {
+  const signinForm = document.querySelector("#signinForm");
+  const signupForm = document.querySelector("#signupForm");
+
+  if (signinForm) {
+    signinForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(signinForm);
+      setAuthMessage("Signing in...");
+
+      try {
+        const data = await postAuth("/api/auth/signin", {
+          email: formData.get("email"),
+          password: formData.get("password")
+        });
+        localStorage.setItem("rootsOfBharatUser", JSON.stringify(data.user));
+        setAuthMessage("Signed in. Opening Explore...", "success");
+        window.location.href = "explore.html";
+      } catch (error) {
+        setAuthMessage(error.message, "error");
+      }
+    });
+  }
+
+  if (signupForm) {
+    signupForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(signupForm);
+      setAuthMessage("Creating account...");
+
+      try {
+        const data = await postAuth("/api/auth/signup", {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          password: formData.get("password"),
+          interest: formData.get("interest")
+        });
+        localStorage.setItem("rootsOfBharatUser", JSON.stringify(data.user));
+        setAuthMessage("Account created. Opening Explore...", "success");
+        window.location.href = "explore.html";
+      } catch (error) {
+        setAuthMessage(error.message, "error");
+      }
+    });
+  }
+}
+
 document.querySelectorAll(".map-pin").forEach((pin) => {
   pin.addEventListener("click", () => selectRegion(pin.dataset.region));
 });
@@ -557,3 +626,4 @@ renderDetail();
 renderCards();
 renderTrail();
 renderFeaturePage();
+initAuthForms();

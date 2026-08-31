@@ -24,18 +24,18 @@
     <h1 id="signup-title">Sign up</h1>
     <p class="auth-note">Demo fields for a future user profile and saved heritage trails.</p>
 
-    <form class="auth-form">
+    <form class="auth-form" id="signupForm">
       <label>
         <span>Full name</span>
-        <input type="text" value="Aarav Sharma">
+        <input name="name" type="text" value="Aarav Sharma" autocomplete="name" required>
       </label>
       <label>
         <span>Email</span>
-        <input type="email" value="aarav@example.com">
+        <input name="email" type="email" value="aarav@example.com" autocomplete="email" required>
       </label>
       <label>
         <span>Interest</span>
-        <select>
+        <select name="interest">
           <option>Temples and sacred places</option>
           <option>Food heritage</option>
           <option>Dance, music, and crafts</option>
@@ -44,13 +44,15 @@
       </label>
       <label>
         <span>Password</span>
-        <input type="password" value="heritage123">
+        <input name="password" type="password" value="heritage123" autocomplete="new-password" required>
       </label>
-      <a class="form-submit" href="explore.html">Create demo account</a>
+      <button class="form-submit" type="submit">Create demo account</button>
+      <p class="auth-message" id="authMessage" role="status"></p>
     </form>
 
     <p class="auth-switch">Already have an account? <a href="signin.html">Sign in</a></p>
   </section>
 </main>
+<script src="script.js"></script>
 </body>
 </html>

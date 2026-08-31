@@ -24,24 +24,26 @@
     <h1 id="signin-title">Sign in</h1>
     <p class="auth-note">Use these sample details for the prototype.</p>
 
-    <form class="auth-form">
+    <form class="auth-form" id="signinForm">
       <label>
         <span>Email</span>
-        <input type="email" value="demo@rootsofbharat.in">
+        <input name="email" type="email" value="demo@rootsofbharat.in" autocomplete="email" required>
       </label>
       <label>
         <span>Password</span>
-        <input type="password" value="heritage123">
+        <input name="password" type="password" value="heritage123" autocomplete="current-password" required>
       </label>
       <label class="remember-row">
-        <input type="checkbox" checked>
+        <input name="remember" type="checkbox" checked>
         <span>Remember this demo user</span>
       </label>
-      <a class="form-submit" href="explore.html">Sign in to explore</a>
+      <button class="form-submit" type="submit">Sign in to explore</button>
+      <p class="auth-message" id="authMessage" role="status"></p>
     </form>
 
     <p class="auth-switch">New here? <a href="signup.html">Create an account</a></p>
   </section>
 </main>
+<script src="script.js"></script>
 </body>
 </html>
